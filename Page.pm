@@ -3,7 +3,7 @@ package IO::Page;
 use strict;
 use vars qw( $VERSION );
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 local( *PAGER, *STDOLD, ) ;
 
@@ -19,7 +19,7 @@ BEGIN {
                    '/usr/bin/less',
                    '/usr/bin/more',
                  ) {
-      chomp $try ;
+      eval { chomp $try } ;
       if ( -x $try ) {
         $pager = $try ;
 	last TRY ;
